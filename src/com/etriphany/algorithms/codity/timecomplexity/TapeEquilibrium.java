@@ -1,6 +1,8 @@
 package com.etriphany.algorithms.codity.timecomplexity;
 
-
+/**
+ * Minimize the value |(A[0] + ... + A[P-1]) - (A[P] + ... + A[N-1])|.
+ */
 public class TapeEquilibrium {
 
     public static void main(String[] args) {
@@ -11,20 +13,20 @@ public class TapeEquilibrium {
     }
 
     // Time O(N) / Space O(N)
-    public int solution(int[] A) {
+    public int solution(int[] a) {
         long sumL = 0;
         long sumR = 0;
         long result = Long.MAX_VALUE;
 
         // Initialize sums (0 < p < N)
         // it makes solution O(2 * N) = O(N)
-        sumL = A[0];
-        for (int p = 1; p < A.length; ++p) {
-            sumR += A[p];
+        sumL = a[0];
+        for (int p = 1; p < a.length; ++p) {
+            sumR += a[p];
         }
 
         // Check abs sum diffs
-        for (int p = 1; p < A.length; ++p) {
+        for (int p = 1; p < a.length; ++p) {
 
             long diff = Math.abs(sumL - sumR);
             if (result > diff) {
@@ -32,8 +34,8 @@ public class TapeEquilibrium {
             }
 
             // Change sums
-            sumL += A[p];
-            sumR -= A[p];
+            sumL += a[p];
+            sumR -= a[p];
         }
 
         return (int) result;
