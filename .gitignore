@@ -1,0 +1,7 @@
+# IDE
+.idea
+*.iml
+
+# Output folders
+.target
+out
