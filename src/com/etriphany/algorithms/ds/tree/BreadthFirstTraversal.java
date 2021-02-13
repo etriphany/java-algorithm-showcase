@@ -75,7 +75,7 @@ public class BreadthFirstTraversal {
             return;
         }
 
-        Queue<Node> queue = new LinkedList<>(); // Test with PriorityQueue and see what happens
+        Queue<Node> queue = new LinkedList<>(); // SqrtBinaySearch with PriorityQueue and see what happens
         queue.offer(root);
 
         while(queue.peek() != null) {

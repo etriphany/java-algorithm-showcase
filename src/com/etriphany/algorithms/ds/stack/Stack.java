@@ -12,7 +12,7 @@ public class Stack<T> {
     private int topIdx;
 
     public Stack(Class<T> tClass, int capacity) {
-        this.innerArray = (T[])Array.newInstance(tClass, capacity);
+        this.innerArray = (T[]) Array.newInstance(tClass, capacity);
     }
 
     /**
@@ -21,7 +21,7 @@ public class Stack<T> {
      * @param element
      */
     public void push(final T element) {
-        if(topIdx == innerArray.length) {
+        if (topIdx == innerArray.length) {
             throw new IllegalStateException("Stack is full");
         }
         innerArray[topIdx] = element;
@@ -35,7 +35,7 @@ public class Stack<T> {
      */
     public T pop() {
         // Empty stack
-        if(topIdx == 0) {
+        if (topIdx == 0) {
             return null;
         }
 
@@ -46,16 +46,16 @@ public class Stack<T> {
     }
 
     public static void main(String[] args) {
-        Stack myStack = new Stack<Integer>(Integer.class, 10);
+        Stack<Integer> myStack = new Stack<>(Integer.class, 10);
 
-        for(int i = 0; i < 10; ++i){
+        for (int i = 0; i < 10; ++i) {
             myStack.push(i);
         }
         myStack.pop();
         myStack.pop();
         myStack.push(10);
 
-        for(int i = 0; i < 10; ++i){
+        for (int i = 0; i < 10; ++i) {
             System.out.print(String.format(" %d ", myStack.pop()));
         }
     }

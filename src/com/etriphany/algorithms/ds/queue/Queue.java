@@ -14,7 +14,7 @@ public class Queue<T> {
     private int capacity;
 
     public Queue(Class<T> tClass, int capacity) {
-        innerArray = (T[])Array.newInstance(tClass, capacity);
+        innerArray = (T[]) Array.newInstance(tClass, capacity);
         this.capacity = capacity;
     }
 
@@ -24,14 +24,14 @@ public class Queue<T> {
      * @return
      */
     public T dequeue() {
-        if(eleCount == 0) {
+        if (eleCount == 0) {
             return null;
         }
         T result = innerArray[0];
         --eleCount;
 
-        T[] temp = (T[])Array.newInstance(innerArray.getClass().getComponentType(), this.capacity);
-        System.arraycopy(innerArray, 1, temp, 0, this.capacity-1);
+        T[] temp = (T[]) Array.newInstance(innerArray.getClass().getComponentType(), this.capacity);
+        System.arraycopy(innerArray, 1, temp, 0, this.capacity - 1);
         innerArray = temp;
         return result;
     }
@@ -42,7 +42,7 @@ public class Queue<T> {
      * @param element
      */
     public void enqueue(T element) {
-        if(eleCount == capacity) {
+        if (eleCount == capacity) {
             throw new IllegalStateException("Queue is full");
         }
 
@@ -51,16 +51,16 @@ public class Queue<T> {
     }
 
     public static void main(String[] args) {
-        Queue myQueue = new Queue(Integer.class, 10);
+        Queue<Integer> myQueue = new Queue<>(Integer.class, 10);
 
-        for(int i = 0; i < 10; ++i) {
+        for (int i = 0; i < 10; ++i) {
             myQueue.enqueue(i);
         }
         myQueue.dequeue();
         myQueue.dequeue();
         myQueue.enqueue(10);
 
-        for(int i = 0; i < 10; ++i) {
+        for (int i = 0; i < 10; ++i) {
             System.out.print(String.format(" %d ", myQueue.dequeue()));
         }
 
